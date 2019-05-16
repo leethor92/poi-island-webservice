@@ -1,7 +1,7 @@
 {{> mainmenu _id="home" }}
 
 <div class="ui stacked fluid form segment">
-    <form action="/poi/updatepoi/{{point.id}}" method="POST">
+    <form action="/pointlist/updatepoi{{point.id}}" method="POST">
         <div class="field">
             <label>Name</label>
             <input value="{{point.name}}" type="text" name="name">

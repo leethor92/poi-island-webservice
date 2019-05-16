@@ -4,11 +4,13 @@ const User = require('../models/user');
 const Joi = require('joi');
 const Admin = require('../models/admin');
 const Boom = require('boom');
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 
 const Accounts = {
   index: {
-    auth: false,
+    auth: 'github-oauth',
     handler: function(request, h) {
       return h.view('main', { title: 'Welcome to the Irish Isles' });
     }
@@ -54,11 +56,14 @@ const Accounts = {
           const message = 'Email address is already registered';
           throw new Boom(message);
         }
+
+        const hash = await bcrypt.hash(payload.password, saltRounds);
+
         const newUser = new User({
           firstName: payload.firstName,
           lastName: payload.lastName,
           email: payload.email,
-          password: payload.password
+          password: hash
         });
         user = await newUser.save();
         request.cookieAuth.set({ id: user.id });
@@ -172,7 +177,8 @@ const Accounts = {
         user.firstName = userEdit.firstName;
         user.lastName = userEdit.lastName;
         user.email = userEdit.email;
-        user.password = userEdit.password;
+        const hash = await bcrypt.hash(userEdit.password, saltRounds);
+        user.password = hash;
         await user.save();
         return h.redirect('/settings');
       } catch (err) {

@@ -22,7 +22,7 @@ module.exports = [
   { method: 'POST', path: '/poi', config: Dashboard.addPOI },
   { method: 'GET', path: '/updatepoi/{id}', config: Dashboard.pointSettings },
   { method: 'POST', path: '/pointlist/updatepoi/{id}', config: Dashboard.updatePoint },
-
+  { method: 'GET', path: '/pointlist/deletePoint/{id}', config: Dashboard.deletePoint },
   {
     method: 'GET', path: '/{param*}',
     handler: {

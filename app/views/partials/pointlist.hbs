@@ -10,6 +10,8 @@
             <th>Name</th>
             <th>Details</th>
             <th>Member</th>
+            <th>Edit</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>
@@ -18,10 +20,9 @@
               <td> {{name}} </td>
               <td> {{details}} </td>
               <td> {{member.firstName}} {{member.lastName}}</td>
+              <td><a href="/pointlist/updatepoi/{{point.id}}"><button class="ui blue button">Update</button></a></td>
+              <td><a href="/pointlist/deletePoint/{{point.id}}"><button class="negative ui right floated button">Delete</button></a></td>
             </tr>
-            <div class="ui container">
-                <a href="/updatepoi/{{point.id}}"><button class="ui blue button">Update</button></a>
-            </div>
           {{/each}}
         </tbody>
       </table>

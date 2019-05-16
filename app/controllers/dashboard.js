@@ -4,6 +4,7 @@ const PointOfInterest = require('../models/POI');
 const User = require('../models/user');
 const Joi = require('joi');
 
+
 const Dashboard = {
   home: {
     handler: function(request, h) {
@@ -55,14 +56,31 @@ const Dashboard = {
     },
     handler: async function(request, h) {
       try {
-        const pointUpdate = request.payload;
+        const pointEdit = request.payload;
         const point = await PointOfInterest.findById(request.params.id);
-        point.name = pointUpdate.name;
-        point.details = pointUpdate.details;
+        point.name = pointEdit.name;
+        point.details = pointEdit.details;
         await point.save();
-        return h.view('poi', { title: 'Explore the Irish isles', point: point });
+        return h.view('updatepoi', { title: 'Explore the Irish isles', point: point });
       } catch (err) {
         return h.view('main', { errors: [{ message: err.message}]});
+      }
+    }
+  },
+  deletePoint: {
+    handler: async function(request, h) {
+      try {
+        PointOfInterest.findByIdAndRemove(request.params.id, function(err) {
+          if (err) {
+            console.log('Error: Point not deleted');
+          }
+          else {
+            console.log('Success: Point deleted');
+          }
+        });
+        return h.redirect('/home');
+      } catch (e) {
+        return h.view('main', { errors:[{ message: e.message}]});
       }
     }
   },
