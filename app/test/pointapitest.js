@@ -11,7 +11,7 @@ suite('Point API tests', function () {
   let points = fixtures.points;
   let newPoint = fixtures.newPoint;
 
-  const pointService = new PointService('https://desktop-tmdjo97:3000');
+  const pointService = new PointService(fixtures.pointService);
 
   setup(async function () {
     await pointService.deleteAllPoints();

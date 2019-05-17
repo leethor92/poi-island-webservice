@@ -8,8 +8,8 @@ const Points = {
   find: {
     auth: false,
     handler: async function(request, h) {
-      const Points = await Point.find();
-      return Points;
+      const points = await Point.find();
+      return points;
     }
   },
   findOne: {
@@ -42,7 +42,7 @@ const Points = {
   deleteAll: {
     auth: false,
     handler: async function(request, h) {
-      await Point.remove({});
+      await Point.deleteMany({});
       return { success: true};
     }
   },
@@ -51,8 +51,8 @@ const Points = {
     auth: false,
     handler: async function(request, h) {
       const point = await Point.deleteOne({_id: request.params.id});
-      if(response.deletedCount == 1) {
-        return { succes:true };
+      if(point) {
+        return { success:true };
       }
       return Boom.notFound('id not found');
     }

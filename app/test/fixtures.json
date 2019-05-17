@@ -1,4 +1,19 @@
 {
+  "pointService": "https://desktop-tmdjo97:3000",
+  "users": [
+    {
+      "firstName": "Homer",
+      "lastName": "Simpson",
+      "email": "homer@simpson.com",
+      "password": "$2a$10$3Cab84oLBF5ohx5bcd2VtObRAFfpeCEzVzUJj4GWjiOHd7wqH0OJq"
+    },
+    {
+      "firstName": "Marge",
+      "lastName": "Simpson",
+      "email": "margesimpson.com",
+      "password": "$2a$10$3Cab84oLBF5ohx5bcd2VtObRAFfpeCEzVzUJj4GWjiOHd7wqH0OJq"
+    }
+  ],
   "points": [
      {
       "name": "Tory Island",
@@ -20,5 +35,12 @@
     {
       "name": "Skellig Michael",
       "details": "The Skellig Islands are 2 uninhabited, rocky islets off the southwestern coast of Ireland. Skellig Michael is known for its well-preserved early Christian monastery"
+    },
+    "newUser":
+    {
+      "firstName": "Maggie",
+      "lastName": "Simpson",
+      "email": "maggie@simpson.com",
+      "password": "$2a$10$3Cab84oLBF5ohx5bcd2VtObRAFfpeCEzVzUJj4GWjiOHd7wqH0OJq"
     }
 }
