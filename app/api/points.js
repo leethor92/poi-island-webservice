@@ -50,8 +50,8 @@ const Points = {
   deleteOne:{
     auth: false,
     handler: async function(request, h) {
-      const point = await Point.remove({_id: request.params.id});
-      if(point) {
+      const point = await Point.deleteOne({_id: request.params.id});
+      if(response.deletedCount == 1) {
         return { succes:true };
       }
       return Boom.notFound('id not found');
