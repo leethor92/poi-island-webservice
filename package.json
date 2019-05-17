@@ -28,11 +28,16 @@
     "hapi-auth-cookie": "^9.1.0",
     "inert": "^5.1.2",
     "joi": "^14.3.1",
+    "lodash": "^4.17.11",
     "mais-mongoose-seeder": "^1.0.7",
     "mongoose": "^5.4.18",
+    "npm": "^6.9.0",
     "vision": "^5.4.4"
   },
   "devDependencies": {
+    "axios": "^0.18.0",
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4",
     "prettier": "^1.16.4"
   },
   "prettier": {

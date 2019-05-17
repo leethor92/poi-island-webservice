@@ -1,44 +1,46 @@
 {
-  "users": {
-    "_model": "User",
-    "homer": {
+  "pointService": "https://desktop-tmdjo97:3000",
+  "users": [
+    {
       "firstName": "Homer",
       "lastName": "Simpson",
       "email": "homer@simpson.com",
       "password": "$2a$10$3Cab84oLBF5ohx5bcd2VtObRAFfpeCEzVzUJj4GWjiOHd7wqH0OJq"
     },
-    "Marge": {
+    {
       "firstName": "Marge",
       "lastName": "Simpson",
-      "email": "marge@simpson.com",
+      "email": "margesimpson.com",
       "password": "$2a$10$3Cab84oLBF5ohx5bcd2VtObRAFfpeCEzVzUJj4GWjiOHd7wqH0OJq"
     }
-  },
-  "admins": {
-    "_model": "Admin",
-    "bart": {
-      "firstName": "Bart",
-      "lastName": "Simpson",
-      "email": "bart@simpson.com",
-      "password": "$2a$10$3Cab84oLBF5ohx5bcd2VtObRAFfpeCEzVzUJj4GWjiOHd7wqH0OJq"
-    }
-  },
-  "points": {
-    "_model": "PointOfInterest",
-    "one": {
+  ],
+  "points": [
+     {
       "name": "Tory Island",
       "details": "Tory Island, or simply Tory, is an island 14.5 kilometres off the north-west coast of County Donegal in Ulster, Ireland, and is the most remote inhabited island of Ireland.",
       "member": "->users.homer"
-    },
-    "two": {
+     },
+     {
       "name": "Inishmaan",
       "details": "Inishmaan is the middle of the three main Aran Islands in Galway Bay on the west coast of Ireland. It is part of County Galway in the province of Connacht. Inishmaan has a population of about 160, making it the smallest of the Aran Islands in terms of population",
       "member": "->users.homer"
-    },
-    "three": {
+     },
+     {
       "name": "Inisheer",
       "details": "Inisheer, the island's official name, Inis Oirthir, meaning \"east island\", and traditionally Inis Thiar, meaning \"rear island\". It is the smallest and most eastern of the three Aran Islands in Galway Bay",
       "member": "->users.homer"
+     }
+    ],
+    "newPoint":
+    {
+      "name": "Skellig Michael",
+      "details": "The Skellig Islands are 2 uninhabited, rocky islets off the southwestern coast of Ireland. Skellig Michael is known for its well-preserved early Christian monastery"
+    },
+    "newUser":
+    {
+      "firstName": "Maggie",
+      "lastName": "Simpson",
+      "email": "maggie@simpson.com",
+      "password": "$2a$10$3Cab84oLBF5ohx5bcd2VtObRAFfpeCEzVzUJj4GWjiOHd7wqH0OJq"
     }
-  }
 }

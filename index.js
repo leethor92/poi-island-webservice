@@ -12,11 +12,11 @@ if (result.error) {
 }
 
 const server = Hapi.server({
-  port: process.env.PORT || 3000,
-  tls: {
-    key: fs.readFileSync('private/webserver.key'),
-    cert: fs.readFileSync('private/webserver_self.crt')
-  }
+  port: process.env.PORT ||3000,
+  tls:{
+  key: fs.readFileSync('private/webserver.key'),
+  cert: fs.readFileSync('private/webserver_self.crt')
+ }
 });
 
 
@@ -65,6 +65,7 @@ async function init() {
   });
 
   server.route(require('./routes'));
+  server.route(require('./routesapi'));
   await server.start();
   console.log(`Server running at: ${server.info.uri}`);
 }
