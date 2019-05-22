@@ -81,6 +81,15 @@ class PointService {
       return null;
     }
   }
+
+  async authenticate(user) {
+    try {
+      const response = await axios.post('/api/users/authenticate', user);
+      return response.data;
+    } catch (e) {
+      return null;
+    }
+  }
   
 }
 
