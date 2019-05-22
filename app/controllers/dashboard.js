@@ -62,6 +62,7 @@ const Dashboard = {
         const point = await PointOfInterest.findById(request.params.id);
         point.name = updatePoint.name;
         point.details = updatePoint.details;
+        point.category = updatePoint.category;
         await point.save();
         return h.redirect('report');
       } catch (err) {
