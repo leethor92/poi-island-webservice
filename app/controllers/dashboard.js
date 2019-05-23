@@ -47,7 +47,8 @@ const Dashboard = {
     validate: {
       payload: {
         name: Joi.string().required(),
-        details: Joi.string().required()
+        details: Joi.string().required(),
+        category: Joi.string().required()
       },
       options: {
         abortEarly: false
@@ -64,9 +65,9 @@ const Dashboard = {
         point.details = updatePoint.details;
         point.category = updatePoint.category;
         await point.save();
-        return h.redirect('report');
+        return h.redirect('/report');
       } catch (err) {
-        return h.view('report', { errors: [{ message: err.message}]});
+        return h.view('main', { errors: [{ message: err.message}]});
       }
     }
   },

@@ -20,7 +20,7 @@ module.exports = [
   { method: 'GET', path: '/home', config: Dashboard.home },
   { method: 'GET', path: '/report', config: Dashboard.report },
   { method: 'POST', path: '/poi', config: Dashboard.addPOI },
-  { method: 'POST', path: '/poi/settingsPoi/{id}', config: Dashboard.updatePoi },
+  { method: 'POST', path: '/poi/updatePoi/{id}', config: Dashboard.updatePoi },
   { method: 'GET', path: '/updatePoi/{id}', config: Dashboard.pointSettings },
 
   { method: 'GET', path: '/poi/deletePoint/{id}', config: Dashboard.deletePoint },

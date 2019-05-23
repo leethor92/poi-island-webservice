@@ -1,7 +1,7 @@
 {{> mainmenu _id="updatePoi" }}
 
 <div class="ui stacked fluid form segment">
-    <form action="/poi/settingsPoi/{{point._id}}" method="POST">
+    <form action="/poi/updatePoi/{{point._id}}" method="POST">
         <div class="field">
             <label>Name</label>
             <input value="{{point.name}}" type="text" name="name">
@@ -9,6 +9,10 @@
         <div class="field">
             <label>Details</label>
             <textarea type="text" name="details">{{point.details}}</textarea>
+        </div>
+        <div class="field">
+            <label>Category</label>
+            <input value="{{point.category}}" type="text" name="category">
         </div>
         <button class="ui blue submit button">Add</button>
     </form>
