@@ -20,9 +20,10 @@ module.exports = [
   { method: 'GET', path: '/home', config: Dashboard.home },
   { method: 'GET', path: '/report', config: Dashboard.report },
   { method: 'POST', path: '/poi', config: Dashboard.addPOI },
-  { method: 'GET', path: '/updatepoi/{id}', config: Dashboard.pointSettings },
-  { method: 'POST', path: '/pointlist/updatepoi/{id}', config: Dashboard.updatePoint },
-  { method: 'GET', path: '/pointlist/deletePoint/{id}', config: Dashboard.deletePoint },
+  { method: 'POST', path: '/poi/updatePoi/{id}', config: Dashboard.updatePoi },
+  { method: 'GET', path: '/updatePoi/{id}', config: Dashboard.pointSettings },
+
+  { method: 'GET', path: '/poi/deletePoint/{id}', config: Dashboard.deletePoint },
   {
     method: 'GET', path: '/{param*}',
     handler: {

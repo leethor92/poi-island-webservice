@@ -109,9 +109,13 @@ const Accounts = {
         let user = await User.findByEmail(email);
         let admin = await Admin.findByEmail(email);
         if (user) {
-          user.comparePassword(password);
-          request.cookieAuth.set({ id: user.id });
-          return h.redirect('/home');
+          if (!await user.comparePassword(password)) {
+            const message = 'Password mismatch'
+          }
+          else {
+            request.cookieAuth.set({ id: user.id });
+            return h.redirect('/home');
+          }
         }
         else if (admin) {
           admin.comparePassword(password);
@@ -174,10 +178,10 @@ const Accounts = {
         const userEdit = request.payload;
         const id = request.auth.credentials.id;
         const user = await User.findById(id);
+        const hash = await bcrypt.hash(userEdit.password, saltRounds);
         user.firstName = userEdit.firstName;
         user.lastName = userEdit.lastName;
         user.email = userEdit.email;
-        const hash = await bcrypt.hash(userEdit.password, saltRounds);
         user.password = hash;
         await user.save();
         return h.redirect('/settings');

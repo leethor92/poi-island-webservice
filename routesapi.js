@@ -8,9 +8,11 @@ module.exports = [
   { method: 'DELETE', path: '/api/points/{id}', config: PointsApi.deleteOne },
   { method: 'DELETE', path: '/api/points', config: PointsApi.deleteAll },
 
+
   { method: 'GET', path: '/api/users', config: UsersApi.find },
   { method: 'GET', path: '/api/users/{id}', config: UsersApi.findOne },
   { method: 'POST', path: '/api/users', config: UsersApi.create },
   { method: 'DELETE', path: '/api/users/{id}', config: UsersApi.deleteOne },
-  { method: 'DELETE', path: '/api/users', config: UsersApi.deleteAll }
+  { method: 'DELETE', path: '/api/users', config: UsersApi.deleteAll },
+  { method: 'POST', path: '/api/users/authenticate', config: UsersApi.authenticate },
 ];

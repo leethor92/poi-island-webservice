@@ -13,6 +13,7 @@ if (result.error) {
 
 const server = Hapi.server({
   port: process.env.PORT ||3000,
+  routes: { cors: true},
   tls:{
   key: fs.readFileSync('private/webserver.key'),
   cert: fs.readFileSync('private/webserver_self.crt')

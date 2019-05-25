@@ -21,7 +21,8 @@ const Dashboard = {
         const newPoint = new PointOfInterest({
           name: data.name,
           details: data.details,
-          member: user._id
+          member: user._id,
+          category: data.category
         });
         await newPoint.save();
         return h.redirect('/report');
@@ -34,34 +35,37 @@ const Dashboard = {
   pointSettings: {
     handler: async function(request, h) {
       try {
-        const point = await PointOfInterest.findById(request.params.id);
-        return h.view('updatepoi', { title: 'Update POI', point: point});
+        const id = request.params.id;
+        const point = await PointOfInterest.findById(id);
+        return h.view('updatePoi', { title: 'Update POI', point: point});
       } catch (err) {
-        return h.view('main', { errors:[{ message: err.message}]});
+        return h.view('updatePoi', { errors:[{ message: err.message}]});
       }
     }
   },
-  updatePoint: {
+  updatePoi: {
     validate: {
       payload: {
         name: Joi.string().required(),
-        description: Joi.string().required()
+        details: Joi.string().required(),
+        category: Joi.string().required()
       },
       options: {
         abortEarly: false
       },
       failAction: function (request, h, error) {
-        return h.view('updatepoi', { title: 'poi update error', errors: error.details}).takeover().code(400);
+        return h.view('updatePoi', { title: 'poi update error', errors: error.details}).takeover().code(400);
       }
     },
     handler: async function(request, h) {
       try {
-        const pointEdit = request.payload;
+        const updatePoint = request.payload;
         const point = await PointOfInterest.findById(request.params.id);
-        point.name = pointEdit.name;
-        point.details = pointEdit.details;
+        point.name = updatePoint.name;
+        point.details = updatePoint.details;
+        point.category = updatePoint.category;
         await point.save();
-        return h.view('updatepoi', { title: 'Explore the Irish isles', point: point });
+        return h.redirect('/report');
       } catch (err) {
         return h.view('main', { errors: [{ message: err.message}]});
       }
@@ -70,7 +74,7 @@ const Dashboard = {
   deletePoint: {
     handler: async function(request, h) {
       try {
-        PointOfInterest.findByIdAndRemove(request.params.id, function(err) {
+        await PointOfInterest.findByIdAndRemove(request.params.id, function(err) {
           if (err) {
             console.log('Error: Point not deleted');
           }
@@ -78,7 +82,7 @@ const Dashboard = {
             console.log('Success: Point deleted');
           }
         });
-        return h.redirect('/home');
+        return h.redirect('/report');
       } catch (e) {
         return h.view('main', { errors:[{ message: e.message}]});
       }
