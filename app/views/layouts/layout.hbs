@@ -12,6 +12,11 @@
     {{{content}}}
 </section>
 <script>
+    $(document).ready(function () {
+        $('.ui.dropdown').dropdown({ on: 'hover' });
+    });
+</script>
+<script>
     $('.message .close').on('click', function () {
         $(this).closest('.message').transition('fade');
     });

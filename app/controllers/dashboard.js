@@ -22,8 +22,8 @@ const Dashboard = {
           details: data.details,
           member: user._id,
           category: data.category,
-          longitude: data.longitude,
-          latitude: data.latitude
+          long: data.long,
+          lat: data.lat
         });
         await newPoint.save();
         return h.redirect('/report');
@@ -50,8 +50,8 @@ const Dashboard = {
         name: Joi.string().required(),
         details: Joi.string().required(),
         category: Joi.string().required(),
-        longitude: Joi.string().required(),
-        latitude: Joi.string().required()
+        long: Joi.string().required(),
+        lat: Joi.string().required()
       },
       options: {
         abortEarly: false
@@ -67,8 +67,8 @@ const Dashboard = {
         point.name = updatePoint.name;
         point.details = updatePoint.details;
         point.category = updatePoint.category;
-        point.latitude = updatePoint.latitude;
-        point.longitude = updatePoint.longitude;
+        point.lat = updatePoint.lat;
+        point.long = updatePoint.long;
         await point.save();
         return h.redirect('/report');
       } catch (err) {
