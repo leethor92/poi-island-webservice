@@ -10,9 +10,29 @@
             <label>Details</label>
             <textarea type="text" name="details">{{point.details}}</textarea>
         </div>
-        <div class="field">
-            <label>Category</label>
-            <input value="{{point.category}}" type="text" name="category">
+        <div class="ui radio checkbox">
+            <div class="field">
+                <input type="radio" name="category" value="North">
+                <label>North</label>
+            </div>
+        </div>
+        <div class="ui radio checkbox">
+            <div class="field">
+                <input type="radio" name="category" value="East">
+                <label>East</label>
+            </div>
+        </div>
+        <div class="ui radio checkbox">
+            <div class="field">
+                <input type="radio" name="category" value="West">
+                <label>West</label>
+            </div>
+        </div>
+        <div class="ui radio checkbox">
+            <div class="field">
+                <input type="radio" name="category" value="South">
+                <label>South</label>
+            </div>
         </div>
         <button class="ui blue submit button">Add</button>
     </form>
