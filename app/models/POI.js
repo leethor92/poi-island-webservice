@@ -11,6 +11,8 @@ const poiSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'User'
   },
+  long: Number,
+  lat: Number,
 
 });
 

@@ -11,6 +11,8 @@
             <th>Details</th>
             <th>Member</th>
             <th>Category</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
             <th>Edit</th>
             <th>Delete</th>
           </tr>
@@ -22,6 +24,8 @@
               <td> {{details}} </td>
               <td> {{member.firstName}} {{member.lastName}}</td>
               <td> {{category}} </td>
+              <td> {{lat}} </td>
+              <td> {{long}}</td>
               <td><a href="/updatePoi/{{_id}}"><button class="ui blue button">Update</button></a></td>
               <td><a href="/poi/deletePoint/{{_id}}"><button class="negative ui right floated button">Delete</button></a></td>
             </tr>

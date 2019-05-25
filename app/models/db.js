@@ -12,6 +12,7 @@ async function seed() {
   const data = require('./initdata');
   const PointOfInterest = require('./POI');
   const User = require('./user');
+  const Review = require('./review.js');
   const dbData = await seeder.seed(data, { dropDatabase: false, dropCollections: true});
   const points = await PointOfInterest.find();
   console.log(dbData);
