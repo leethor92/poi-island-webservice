@@ -4,7 +4,6 @@ const PointOfInterest = require('../models/POI');
 const User = require('../models/user');
 const Joi = require('joi');
 
-
 const Dashboard = {
   home: {
     handler: function(request, h) {
@@ -22,7 +21,9 @@ const Dashboard = {
           name: data.name,
           details: data.details,
           member: user._id,
-          category: data.category
+          category: data.category,
+          longitude: data.longitude,
+          latitude: data.latitude
         });
         await newPoint.save();
         return h.redirect('/report');
@@ -48,7 +49,9 @@ const Dashboard = {
       payload: {
         name: Joi.string().required(),
         details: Joi.string().required(),
-        category: Joi.string().required()
+        category: Joi.string().required(),
+        longitude: Joi.string().required(),
+        latitude: Joi.string().required()
       },
       options: {
         abortEarly: false
@@ -64,6 +67,8 @@ const Dashboard = {
         point.name = updatePoint.name;
         point.details = updatePoint.details;
         point.category = updatePoint.category;
+        point.latitude = updatePoint.latitude;
+        point.longitude = updatePoint.longitude;
         await point.save();
         return h.redirect('/report');
       } catch (err) {
@@ -127,7 +132,7 @@ const Dashboard = {
        return h.view('main', { errors: [{ message: err.message }] });
      }
     }
-  }
+  },
 
 };
 

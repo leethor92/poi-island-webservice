@@ -29,19 +29,25 @@
       "name": "Tory Island",
       "details": "Tory Island, or simply Tory, is an island 14.5 kilometres off the north-west coast of County Donegal in Ulster, Ireland, and is the most remote inhabited island of Ireland.",
       "category": "North",
-      "member": "->users.homer"
+      "member": "->users.homer",
+      "latitude": "55.2655",
+      "longitude": "8.2304"
     },
     "two": {
       "name": "Inishmaan",
       "details": "Inishmaan is the middle of the three main Aran Islands in Galway Bay on the west coast of Ireland. It is part of County Galway in the province of Connacht. Inishmaan has a population of about 160, making it the smallest of the Aran Islands in terms of population",
       "category": "West",
-      "member": "->users.homer"
+      "member": "->users.homer",
+      "latitude": "53.0855",
+      "longitude": "9.5860"
     },
     "three": {
       "name": "Inisheer",
       "details": "Inisheer, the island's official name, Inis Oirthir, meaning \"east island\", and traditionally Inis Thiar, meaning \"rear island\". It is the smallest and most eastern of the three Aran Islands in Galway Bay",
       "category": "West",
-      "member": "->users.homer"
+      "member": "->users.homer",
+      "latitude": "53.0573",
+      "longitude": "9.5318"
     }
   }
 }
