@@ -14,8 +14,8 @@ const Reviews = {
         const user = await User.findById(id);
         const data = request.payload;
 
-        const rawPoint = request.payload.point;
-        const point = await PointOfInterest.findOne();
+        const rawPoint = request.payload.point.split(',');
+        const point = await PointOfInterest.findOne({name: rawPoint});
 
         const newReview = new Review({
           reviewName: data.reviewName,
