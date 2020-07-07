@@ -34,7 +34,7 @@
     "lodash": "^4.17.11",
     "mais-mongoose-seeder": "^1.0.7",
     "mongoose": "^5.4.18",
-    "npm": "^6.9.0",
+    "npm": "^6.14.6",
     "vision": "^5.4.4"
   },
   "devDependencies": {
